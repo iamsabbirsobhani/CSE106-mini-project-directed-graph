@@ -2,34 +2,24 @@
 #include <stdlib.h>
 #include <time.h>
 
-int getRandomNumber() {
-    srand(time(0));
-    int random_number = rand() % 2;
-    return random_number;
-}
-
 int main() {
+    srand(time(NULL));
 
     int sumOfOutDegree = 0;
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
+    int nVertices = 800;
+    int directed_graph_array[nVertices][nVertices] = {};
 
-    printf("%d\n", getRandomNumber());
+    for (int i = 0; i < nVertices; i++) {
+        for (int j = 0; j < nVertices; j++) {
+            directed_graph_array[i][j] = rand() % 2;
+        }
+    }
 
-    // Part II Presentation: Slide page 96, Definition 4, Example:
-    int directed_graph_array[7][7] = {
-            {1, 1, 1, 0, 1, 0, 0},
-            {0, 0, 0, 1, 0, 0, 0},
-            {0, 1, 1, 0, 0, 0, 0},
-            {0, 0, 1, 0, 1, 0, 0},
-            {1, 1, 0, 1, 1, 0, 0},
-            {0, 0, 1, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
-    };
-
-    for (int i = 0; i < 7; i++) {
-        for (int j = 0; j < 7; j++) {
+    for (int i = 0; i < nVertices; i++) {
+        for (int j = 0; j < nVertices; j++) {
             if(directed_graph_array[i][j] == 1) {
                 sumOfOutDegree += 1;
             }
@@ -37,9 +27,9 @@ int main() {
                 sumOfInDegree += 1;
             }
         }
-        printf("deg-(%d) = %d\n", i, sumOfInDegree);
+//        printf("deg-(%d) = %d\n", i, sumOfInDegree);
         totalSumOfInDegrees += sumOfInDegree;
-        printf("deg+(%d) = %d\n", i, sumOfOutDegree);
+//        printf("deg+(%d) = %d\n", i, sumOfOutDegree);
         totalSumOfOutDegrees += sumOfOutDegree;
         sumOfOutDegree = 0;
         sumOfInDegree = 0;
