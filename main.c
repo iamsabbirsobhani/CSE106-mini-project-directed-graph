@@ -9,8 +9,13 @@ int main() {
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
-    int nVertices = 800;
-    int directed_graph_array[nVertices][nVertices] = {};
+    int nVertices = 5000;
+
+    // Allocate memory dynamically for the 2D array
+    int **directed_graph_array = malloc(nVertices * sizeof(int *));
+    for (int i = 0; i < nVertices; i++) {
+        directed_graph_array[i] = malloc(nVertices * sizeof(int));
+    }
 
     for (int i = 0; i < nVertices; i++) {
         for (int j = 0; j < nVertices; j++) {
@@ -42,5 +47,11 @@ int main() {
     } else {
         printf("Sum of in-degrees and Sum of out-degrees are not equal!");
     }
+
+    // Free allocated memory
+    for (int i = 0; i < nVertices; i++) {
+        free(directed_graph_array[i]);
+    }
+    free(directed_graph_array);
     return 0;
 }
