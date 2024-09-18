@@ -1,18 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int getRandomNumber() {
+    srand(time(0));
+    int random_number = rand() % 2;
+    return random_number;
+}
 
 int main() {
+
     int sumOfOutDegree = 0;
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
+
+    printf("%d\n", getRandomNumber());
+
     // Part II Presentation: Slide page 96, Definition 4, Example:
     int directed_graph_array[7][7] = {
             {1, 1, 1, 0, 1, 0, 0},
             {0, 0, 0, 1, 0, 0, 0},
             {0, 1, 1, 0, 0, 0, 0},
             {0, 0, 1, 0, 1, 0, 0},
-            {1, 0, 0, 1, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0},
+            {1, 1, 0, 1, 1, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0},
     };
 
