@@ -15,7 +15,7 @@ int main() {
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
-    int nVertices = 1000;
+    int nVertices = 10000;
 
     int **directed_graph_array = malloc(nVertices * sizeof(int *));
     for (int i = 0; i < nVertices; i++) {
@@ -42,6 +42,8 @@ int main() {
         sumOfOutDegree = 0;
         sumOfInDegree = 0;
     }
+
+    printf("Total Vertices/n : %d\n", nVertices);
 
     printf("Total Sum of In Degrees: %d\n", totalSumOfInDegrees);
     printf("Total Sum of Out Degrees: %d\n", totalSumOfOutDegrees);
