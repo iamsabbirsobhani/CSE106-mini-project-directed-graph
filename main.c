@@ -4,8 +4,11 @@
 
 int main() {
     srand(time(NULL));
+
     clock_t start, end;
+
     double computationTime = 0.0;
+
     start = clock();
 
     int sumOfOutDegree = 0;
@@ -42,6 +45,7 @@ int main() {
 
     printf("Total Sum of In Degrees: %d\n", totalSumOfInDegrees);
     printf("Total Sum of Out Degrees: %d\n", totalSumOfOutDegrees);
+
     if (totalSumOfInDegrees == totalSumOfOutDegrees) {
         printf("Sum of In Degrees and Sum of Out Degrees are equal.\n");
     } else {
@@ -52,8 +56,11 @@ int main() {
         free(directed_graph_array[i]);
     }
     free(directed_graph_array);
+
     end = clock();
+
     computationTime = ((double) (end - start)) / CLOCKS_PER_SEC;
+
     printf("Computational Time: %.2f seconds", computationTime);
     return 0;
 }
