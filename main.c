@@ -55,5 +55,5 @@ int main() {
     computationTime = ((double) (end - start)) / CLOCKS_PER_SEC;
 
     printf("Computational Time: %.2f seconds", computationTime);
-    return 0; // O(1)
+    return 0;
 }
