@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+int directed_graph_array[5001][5001];
 
 int main() {
     srand(time(NULL));
@@ -15,12 +16,7 @@ int main() {
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
-    int nVertices = 10000;
-
-    int **directed_graph_array = malloc(nVertices * sizeof(int *));
-    for (int i = 0; i < nVertices; i++) {
-        directed_graph_array[i] = malloc(nVertices * sizeof(int));
-    }
+    int nVertices = 5000;
 
     for (int i = 0; i < nVertices; i++) {
         for (int j = 0; j < nVertices; j++) {
@@ -53,11 +49,6 @@ int main() {
     } else {
         printf("Sum of In Degrees and Sum of Out Degrees are not equal!");
     }
-
-    for (int i = 0; i < nVertices; i++) {
-        free(directed_graph_array[i]);
-    }
-    free(directed_graph_array);
 
     end = clock();
 
