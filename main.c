@@ -43,9 +43,9 @@ int main() {
     printf("Total Sum of In Degrees: %d\n", totalSumOfInDegrees);
     printf("Total Sum of Out Degrees: %d\n", totalSumOfOutDegrees);
     if (totalSumOfInDegrees == totalSumOfOutDegrees) {
-        printf("Sum of in-degrees and Sum of out-degrees are equal.\n");
+        printf("Sum of In Degrees and Sum of Out Degrees are equal.\n");
     } else {
-        printf("Sum of in-degrees and Sum of out-degrees are not equal!");
+        printf("Sum of In Degrees and Sum of Out Degrees are not equal!");
     }
 
     for (int i = 0; i < nVertices; i++) {
