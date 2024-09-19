@@ -4,14 +4,16 @@
 
 int main() {
     srand(time(NULL));
+    clock_t start, end;
+    double computationTime = 0.0;
+    start = clock();
 
     int sumOfOutDegree = 0;
     int sumOfInDegree = 0;
     int totalSumOfInDegrees = 0;
     int totalSumOfOutDegrees = 0;
-    int nVertices = 5000;
+    int nVertices = 1000;
 
-    // Allocate memory dynamically for the 2D array
     int **directed_graph_array = malloc(nVertices * sizeof(int *));
     for (int i = 0; i < nVertices; i++) {
         directed_graph_array[i] = malloc(nVertices * sizeof(int));
@@ -32,9 +34,7 @@ int main() {
                 sumOfInDegree += 1;
             }
         }
-//        printf("deg-(%d) = %d\n", i, sumOfInDegree);
         totalSumOfInDegrees += sumOfInDegree;
-//        printf("deg+(%d) = %d\n", i, sumOfOutDegree);
         totalSumOfOutDegrees += sumOfOutDegree;
         sumOfOutDegree = 0;
         sumOfInDegree = 0;
@@ -48,10 +48,12 @@ int main() {
         printf("Sum of in-degrees and Sum of out-degrees are not equal!");
     }
 
-    // Free allocated memory
     for (int i = 0; i < nVertices; i++) {
         free(directed_graph_array[i]);
     }
     free(directed_graph_array);
+    end = clock();
+    computationTime = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("Computational Time: %.2f seconds", computationTime);
     return 0;
 }
